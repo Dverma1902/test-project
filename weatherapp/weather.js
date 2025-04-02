@@ -1,45 +1,47 @@
-const API_KEY='b37accd2725d5664e3b331f2a5ab6a93';
-const buttn=document.getElementById("but");
-const inpt=document.getElementById("in");
-const weatherinfo=document.querySelector(".box");
-const weatherinfo2=document.querySelector(".box1");
-buttn.addEventListener("click",fetchweather);
-async function fetchweather(){
-    let cityName=inpt.value;
-    if(!cityName){
-        alert("enter city name");
-        return;
-    }
-    
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`);
-    const data = await response.json();
-    .then((response)=>{
-        const data=response.json();
-        return data;
-    }).then((data)=>{
-        if(data.cod==404){
-            alert("City Name is Invalid");
-            return;
-        }
-        weatherinfo2.style.height="600px";
-        const cityTemp=data.main.temp;
-        const name=data.name;
-        const sky=data.weather[0].description;
-        const hum=data.main.humidity;
-        const feel=data.main.feels_like;
-        const wind=data.wind.speed;
-        weatherinfo.innerHTML=`
-        <div class="curw">
-         <h2>${name}</h2>
-         <div class="temp">${cityTemp}&#176C</div>
-         <div class="desc">${sky}</div>
-         <div class="details">
-         <div>Humidity:${hum}%</div>
-         <div>Wind Speed:${wind}m/s</div>
-         <div>Feels Like:${feel}&#176C</div>
-         </div>
-         </div>
-        `
-    })
-   
-}
+const submitButton=document.getElementById('submit');
+        const apiKey="b37accd2725d5664e3b331f2a5ab6a93";
+        const body=document.querySelector('body');
+
+        submitButton.addEventListener('click',()=>{
+            const city=document.getElementById('cityname').value;
+            const weather=document.querySelector('.footer');
+            if(!city){
+                alert("please enter the city name for weather details !");
+            }
+            
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+            .then((response)=>{
+                
+                let r=response.json();
+                return r;
+            }).then((data)=>{
+                if(data.cod==="404"){
+                    alert("city not found ");
+                    return;
+                }
+                
+                const temp=data.main.temp;
+                const humidity=data.main.humidity;
+                const speed=data.wind.speed;
+                const description=data.weather[0].main;
+                const feels_like=data.main.feels_like;
+
+                weather.style.display="block";
+                body.style.display="flex";
+                body.style.justifyContent="center";
+                body.style.alignItems="center";
+
+
+                weather.innerHTML=`
+                <h1>${city}</h1>
+                <div class="temp">${temp}°C</div>
+                <div class="desp">${description}</div>
+                <div class="details"> 
+                <div class="humidity">Humidity :<br> ${humidity}%</div>
+                 <div class="speed">Wind Speed : <br>${speed} m/s</div>
+                 <div class="speed">Feels Like : <br>${feels_like}°C</div>
+                </div>
+                `
+            })
+            
+        })
