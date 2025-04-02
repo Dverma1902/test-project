@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    height: 100px;
+    width: 1300px;
+    background-color: black;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
+.b1{
+    height: 100px;
+    width: 100px;
+    background-color: orange;
+    background-image: url(https://logos-world.net/wp-content/uploads/2020/04/Amazon-Emblem.jpg);
+    background-size: 100px 100px;
+}
+.b2{
+    height: 100px;
+    width: 100px;
+    background-color: orange;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/009/759/632/original/eps10-white-location-map-icon-isolated-on-black-background-pinpoint-symbol-in-a-simple-flat-trendy-modern-style-for-your-website-design-logo-pictogram-and-mobile-application-vector.jpg);
+    background-size: 100px 100px;
+}
+.b3{
+    height: 100px;
+    width: 500px;
+    background-color: aliceblue;
+    display: flex;
+}
+.bb1{
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+
+}
+.bb2{
+    height: 100px;
+    width: 300px;
+}
+.bb3{
+    height: 100px;
+    width: 100px;
+    background-image: url(https://th.bing.com/th/id/R.c1d7d5c0e3323e72a21449ce8a669a3e?rik=jpXhuNFHGad7VQ&riu=http%3a%2f%2ffreevector.co%2fwp-content%2fuploads%2f2014%2f03%2f2074-search-tool1.png&ehk=8HCpg7RG9Iq1fo4%2brXCCr7zz1%2fMKLiSeaHNLRRpzzz4%3d&risl=&pid=ImgRaw&r=0);
+    background-size: 100px 100px;
+}
+.b4{
+    height: 100px;
+    width: 100px;
+    background-color: orange;
+}
+.i1{
+    height: 100px;
+    width: 24px;
+    background-image: url(https://images3.alphacoders.com/846/84665.jpg);
+    background-size: 100px 24px;
+    background-repeat: no-repeat;
+}
+.b5{
+    height: 100px;
+    width: 100px;
+    background-color: orange;
+}
+.b6{
+    height: 100px;
+    width: 150px;
+    background-color: orange;
+}
+.b7{
+    height: 100px;
+    width: 100px;
+    background-color: orange;
+    background-image: url(https://th.bing.com/th/id/OIP.1lLTsFT5hpiiQ2zK1AR4pAHaDt?rs=1&pid=ImgDetMain);
+    background-size: 100px 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #container{
+    border: 2px solid black;
+    height: 1000px;
+    width: 1000px;
+    margin: auto;
+    color:white;
+    text-align: center;
+    border: 2px solid black;
+    font-size: 40px;
+    padding-top: 250px;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/024/669/489/non_2x/mountain-countryside-landscape-at-sunset-dramatic-sky-over-a-distant-valley-green-fields-and-trees-on-hill-beautiful-natural-landscapes-of-the-carpathians-generative-ai-variation-5-photo.jpeg);
+    background-size: cover;
+}
+#image-row{
+    height: 100px;
+    width: 100px;
+}
+#navbar{
+    height: 400px;
+    width: 400px;
+    padding: 100px;
+    background-color: rgb(240, 203, 209);
+    font-family: monotype corsiva;
+    padding: 50px 50px 50px 20px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    border-width: 5px;
+    border: 10px dashed black;
+    opacity: 1;
+    background-image: url(https://wallpapercave.com/wp/wp2722928.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+
+    
+} */
