@@ -1,0 +1,212 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+   <div class="outer">
+       <div class="box1">
+       <h1>WEATHER APP</h1>
+       <div class="inpt">
+           <input type="text" id="in" placeholder="Enter city name">
+           <button id="but" >Get Weather</button>
+        </div>
+        <div class="box"></div>
+    </div>
+</div>
+</body>
+<script src="weather.js"></script>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        body{
+            height:100%;
+            width:100%;
+            background:linear-gradient(to right,rgb(133, 247, 241),rgb(204, 198, 198));
+            background-size: 100% 200%;
+            background-repeat: no-repeat;
+        }
+        .outer{
+            min-height:200px;
+            width:500px;
+            background: url(https://images.pexels.com/photos/2909261/pexels-photo-2909261.jpeg?auto=compress&cs=tinysrgb&w=600);
+            background-size: cover;
+            background-color: rgba(255,255,255,0.2);
+            background-blend-mode: lighten;
+            margin: auto;
+            margin-top: 90px;
+            display:flex ;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;   
+            padding: 40px;
+            gap:20px;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+        }
+        .header{
+            margin-top:20px;
+            height:50px;
+            color:black;
+            font-family:'Times New Roman', Times, serif;
+            font-weight: 900;
+           
+        }
+        .main{
+            height:100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+            
+        }
+        input{
+            height:50px;
+            border-radius: 5px;
+            border: 1px solid grey;
+        }
+        input:hover{
+            border:3px solid rgb(48, 132, 243);
+        }
+        #cityname{
+            width:250px;
+            padding-left: 10px;
+        }
+        #submit{
+            width:150px;
+            height:50px;
+            border-radius: 5px;
+            border: 1px solid grey;
+            background-color: rgb(83, 224, 243);
+        }
+        .footer{
+            text-align: center;
+            text-shadow: 5px 5px 5px rgb(247, 244, 244);
+            height:250px;
+            width:100%;
+            border: 2px solid;
+            border-radius: 10px 10px 10px 10px;
+            color:black;
+            padding-top:20px ;
+            display: none;   
+            flex-direction: column;  
+            justify-content: center;
+            align-items: center;
+            background-blend-mode: lighten;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+        }
+        .footer h1{
+            font-size: 40px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 500;
+        }
+        .temp{
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+        }
+        .humidity{
+            
+            
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+        }
+        .type{
+            font-size:30px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+        }
+        .details{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            gap:40px;
+            font-size: 15px;
+            margin-top:20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+        }
+        .speed{
+            color:white !important;  
+            text-shadow: 2px 2px 2px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="header"><h1>We<span style="color:white">ather Details</span></h1></div>
+        <div class="main">
+            <input type="text" id="cityname" placeholder="Enter city here"/>
+            <button id="submit">Get Weather</button>
+        </div>
+        <div class="footer"></div>
+    </div>
+
+    <script>
+       
+        const submitButton=document.getElementById('submit');
+        const apiKey="b37accd2725d5664e3b331f2a5ab6a93";
+        const body=document.querySelector('body');
+
+        submitButton.addEventListener('click',()=>{
+            const city=document.getElementById('cityname').value;
+            const weather=document.querySelector('.footer');
+            if(!city){
+                alert("please enter the city name for weather details !");
+            }
+            
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+            .then((response)=>{
+                
+                let r=response.json();
+                return r;
+            }).then((data)=>{
+                if(data.cod==="404"){
+                    alert("city not found ");
+                    return;
+                }
+                
+                const temp=data.main.temp;
+                const humidity=data.main.humidity;
+                const speed=data.wind.speed;
+                const description=data.weather[0].main;
+                const feels_like=data.main.feels_like;
+
+                weather.style.display="block";
+                body.style.display="flex";
+                body.style.justifyContent="center";
+                body.style.alignItems="center";
+
+
+                weather.innerHTML=`
+                <h1>${city}</h1>
+                <div class="temp">${temp}°C</div>
+                <div class="desp">${description}</div>
+                <div class="details"> 
+                <div class="humidity">Humidity :<br> ${humidity}%</div>
+                 <div class="speed">Wind Speed : <br>${speed} m/s</div>
+                 <div class="speed">Feels Like : <br>${feels_like}°C</div>
+                </div>
+                `
+            })
+            
+        })
+    </script>
+</body>
+</html>
